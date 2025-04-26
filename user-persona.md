@@ -20,4 +20,4 @@
 
 **Why WatchList?**
 
-> Aiham likes minimal, no-fuss apps. WatchList lets him add movies instantly and auto-cleans his list when he's done — no account needed, just open and go.
+> Aiham prefers minimal, no-fuss apps. WatchList lets him add movies instantly and automatically cleans his list once a movie is watched — no account needed, just open and go.

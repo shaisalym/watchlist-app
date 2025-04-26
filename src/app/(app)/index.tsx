@@ -32,7 +32,8 @@ export default function WatchListScreen() {
 
       <View className="mb-6 items-center">
         <Text
-          className={`mb-5 pb-4 pt-6 text-4xl font-bold ${isDark ? 'text-cyan-400' : 'text-black'}`}
+          className="mb-5 pb-4 pt-6 text-4xl font-bold"
+          style={{color: isDark ? '#00E6F6' : '#000'}}
         >
           WatchList
         </Text>

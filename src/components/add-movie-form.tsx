@@ -22,6 +22,7 @@ export function AddMovieForm({
   goBack,
 }: Props) {
   const { isDark } = useTheme();
+  const isFormValid = title.trim() !== '' && posterUrl.trim() !== '';
 
   return (
     <View className="mt-4 flex-1 items-center justify-start">
@@ -44,12 +45,19 @@ export function AddMovieForm({
             isDark ? 'bg-[#1C2C2E] text-white' : 'bg-gray-100 text-black'
           }`}
         />
+
         <Pressable
-          className="mb-3 self-center rounded bg-cyan-400 px-6 py-3"
-          onPress={handleAdd}
+          className={`mb-3 self-center rounded px-6 py-3 ${
+            isFormValid ? 'bg-cyan-400' : 'bg-gray-400'
+          }`}
+          onPress={isFormValid ? handleAdd : undefined}
+          disabled={!isFormValid}
         >
-          <Text className="text-center font-semibold text-black">Add</Text>
+          <Text className="text-center font-semibold text-black">
+            Add
+          </Text>
         </Pressable>
+
         <Pressable
           className="self-center rounded bg-cyan-400 px-6 py-2"
           onPress={goBack}

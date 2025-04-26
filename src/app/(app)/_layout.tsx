@@ -1,12 +1,11 @@
-import { Redirect, SplashScreen, Stack } from 'expo-router';
+import { SplashScreen, Stack } from 'expo-router';
 import React, { useCallback, useEffect } from 'react';
 
 import { ThemeProvider } from '@/context/theme-context';
-import { useAuth, useIsFirstTime } from '@/lib';
+import { useAuth } from '@/lib';
 
 export default function Layout() {
   const status = useAuth.use.status();
-  const [isFirstTime] = useIsFirstTime();
 
   const hideSplash = useCallback(async () => {
     await SplashScreen.hideAsync();
@@ -19,9 +18,6 @@ export default function Layout() {
       }, 1000);
     }
   }, [hideSplash, status]);
-
-  if (isFirstTime) return <Redirect href="/onboarding" />;
-  if (status === 'signOut') return <Redirect href="/login" />;
 
   return (
     <ThemeProvider>

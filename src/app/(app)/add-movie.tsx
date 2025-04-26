@@ -16,14 +16,20 @@ export default function AddMovie() {
   const [posterUrl, setPosterUrl] = useState('');
 
   const handleAdd = () => {
-    const newMovie = {
+    if (!title.trim() || !posterUrl.trim()) return;
+
+    const freshMovie = {
       id: Date.now(),
-      title,
-      posterUrl,
+      title: title.trim(),
+      posterUrl: posterUrl.trim(),
       watched: false,
     };
 
-    addMovie(newMovie);
+    addMovie(freshMovie);
+
+    setTitle('');
+    setPosterUrl('');
+
     router.back();
   };
 
@@ -40,7 +46,8 @@ export default function AddMovie() {
       </View>
 
       <Text
-        className={`mb-8 text-center text-4xl font-bold ${isDark ? 'text-cyan-400' : 'text-black'}`}
+        className="mb-8 text-center text-4xl font-bold"
+        style={{color: isDark ? '#00E6F6' : '#000'}}
       >
         WatchList
       </Text>
